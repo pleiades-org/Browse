@@ -8,6 +8,7 @@ import { SettingsView } from "./components/SettingsView";
 import { Sidebar } from "./components/Sidebar";
 import { TitleBar } from "./components/TitleBar";
 import { getPackage } from "./data/catalog";
+import { useAppMemory } from "./hooks/useAppMemory";
 import { useDownloadQueue } from "./hooks/useDownloadQueue";
 import { useSettings } from "./hooks/useSettings";
 import { detectHostOs } from "./lib/install";
@@ -17,9 +18,10 @@ import type { AppBundle, AppPackage, CategoryId, ViewMode } from "./types";
 import "./App.css";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { memory, setMemory } = useAppMemory();
+  const [sidebarOpen, setSidebarOpen] = useState(() => memory.sidebarOpen);
   const [queueOpen, setQueueOpen] = useState(false);
-  const [category, setCategory] = useState<CategoryId>("all");
+  const [category, setCategory] = useState<CategoryId>(() => memory.category);
   const [query, setQuery] = useState("");
   const [view, setView] = useState<ViewMode>("catalog");
   const [detailPkg, setDetailPkg] = useState<AppPackage | null>(null);
@@ -29,6 +31,11 @@ function App() {
   const searchRef = useRef<HTMLInputElement>(null);
 
   const { settings, setSettings, resetSettings } = useSettings();
+
+  // Keep UI memory in sync (category + sidebar survive restarts)
+  useEffect(() => {
+    setMemory({ category, sidebarOpen });
+  }, [category, sidebarOpen, setMemory]);
 
   const {
     queue,

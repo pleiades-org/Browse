@@ -1,0 +1,33 @@
+{
+  "name": "everyone",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Everyone — minimalist app installer with download queue",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "icons": "node scripts/make-icon.mjs",
+    "build": "tsc && vite build && node scripts/make-icon.mjs",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:build": "npm run build && tauri build",
+    "installer": "npm run tauri:build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "reicon-brands": "^1.0.2",
+    "reicon-react": "^1.1.302"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "sharp": "^0.35.3",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  }
+}

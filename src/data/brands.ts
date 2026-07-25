@@ -1,0 +1,414 @@
+import type { BrandIconFn } from "reicon-brands/createIcon";
+
+import Alacritty from "reicon-brands/icons/Alacritty";
+import Anaconda from "reicon-brands/icons/Anaconda";
+import Androidstudio from "reicon-brands/icons/Androidstudio";
+import Anki from "reicon-brands/icons/Anki";
+import Ansible from "reicon-brands/icons/Ansible";
+import Anthropic from "reicon-brands/icons/Anthropic";
+import Anydesk from "reicon-brands/icons/Anydesk";
+import Apacheopenoffice from "reicon-brands/icons/Apacheopenoffice";
+import Apple from "reicon-brands/icons/Apple";
+import Asana from "reicon-brands/icons/Asana";
+import Audacity from "reicon-brands/icons/Audacity";
+import Avast from "reicon-brands/icons/Avast";
+import Avira from "reicon-brands/icons/Avira";
+import Biome from "reicon-brands/icons/Biome";
+import Bitwarden from "reicon-brands/icons/Bitwarden";
+import Blender from "reicon-brands/icons/Blender";
+import Brave from "reicon-brands/icons/Brave";
+import Bun from "reicon-brands/icons/Bun";
+import Ccleaner from "reicon-brands/icons/Ccleaner";
+import Chocolatey from "reicon-brands/icons/Chocolatey";
+import Citrix from "reicon-brands/icons/Citrix";
+import Claude from "reicon-brands/icons/Claude";
+import Cline from "reicon-brands/icons/Cline";
+import Cloudflare from "reicon-brands/icons/Cloudflare";
+import Cryptomator from "reicon-brands/icons/Cryptomator";
+import Cursor from "reicon-brands/icons/Cursor";
+import Davinciresolve from "reicon-brands/icons/Davinciresolve";
+import Dbeaver from "reicon-brands/icons/Dbeaver";
+import Deepseek from "reicon-brands/icons/Deepseek";
+import Deno from "reicon-brands/icons/Deno";
+import Discord from "reicon-brands/icons/Discord";
+import Docker from "reicon-brands/icons/Docker";
+import Dotnet from "reicon-brands/icons/Dotnet";
+import Dropbox from "reicon-brands/icons/Dropbox";
+import Duckduckgo from "reicon-brands/icons/Duckduckgo";
+import Eclipseadoptium from "reicon-brands/icons/Eclipseadoptium";
+import Eclipseide from "reicon-brands/icons/Eclipseide";
+import Electron from "reicon-brands/icons/Electron";
+import Element from "reicon-brands/icons/Element";
+import Elevenlabs from "reicon-brands/icons/Elevenlabs";
+import Emby from "reicon-brands/icons/Emby";
+import Epicgames from "reicon-brands/icons/Epicgames";
+import Eslint from "reicon-brands/icons/Eslint";
+import Evernote from "reicon-brands/icons/Evernote";
+import Ffmpeg from "reicon-brands/icons/Ffmpeg";
+import Figma from "reicon-brands/icons/Figma";
+import Filezilla from "reicon-brands/icons/Filezilla";
+import Firefox from "reicon-brands/icons/Firefox";
+import Flatpak from "reicon-brands/icons/Flatpak";
+import Flutter from "reicon-brands/icons/Flutter";
+import Foobar2000 from "reicon-brands/icons/Foobar2000";
+import Freenet from "reicon-brands/icons/Freenet";
+import Gimp from "reicon-brands/icons/Gimp";
+import Git from "reicon-brands/icons/Git";
+import Gitforwindows from "reicon-brands/icons/Gitforwindows";
+import Github from "reicon-brands/icons/Github";
+import Githubcopilot from "reicon-brands/icons/Githubcopilot";
+import Gitkraken from "reicon-brands/icons/Gitkraken";
+import Gitlab from "reicon-brands/icons/Gitlab";
+import Go from "reicon-brands/icons/Go";
+import Godotengine from "reicon-brands/icons/Godotengine";
+import Googlechrome from "reicon-brands/icons/Googlechrome";
+import Googledrive from "reicon-brands/icons/Googledrive";
+import Googleearth from "reicon-brands/icons/Googleearth";
+import Googlegemini from "reicon-brands/icons/Googlegemini";
+import Grapheneos from "reicon-brands/icons/Grapheneos";
+import Haskell from "reicon-brands/icons/Haskell";
+import Heliumbrowser from "reicon-brands/icons/Heliumbrowser";
+import Helix from "reicon-brands/icons/Helix";
+import Homebrew from "reicon-brands/icons/Homebrew";
+import Htop from "reicon-brands/icons/Htop";
+import Huggingface from "reicon-brands/icons/Huggingface";
+import Inkscape from "reicon-brands/icons/Inkscape";
+import Insomnia from "reicon-brands/icons/Insomnia";
+import Intellijidea from "reicon-brands/icons/Intellijidea";
+import Ipfs from "reicon-brands/icons/Ipfs";
+import Itunes from "reicon-brands/icons/Itunes";
+import Jellyfin from "reicon-brands/icons/Jellyfin";
+import Jetbrains from "reicon-brands/icons/Jetbrains";
+import Jira from "reicon-brands/icons/Jira";
+import Julia from "reicon-brands/icons/Julia";
+import Jupyter from "reicon-brands/icons/Jupyter";
+import Keepassxc from "reicon-brands/icons/Keepassxc";
+import Kodi from "reicon-brands/icons/Kodi";
+import Krita from "reicon-brands/icons/Krita";
+import Kubernetes from "reicon-brands/icons/Kubernetes";
+import Lastpass from "reicon-brands/icons/Lastpass";
+import Libreoffice from "reicon-brands/icons/Libreoffice";
+import Librewolf from "reicon-brands/icons/Librewolf";
+import Linear from "reicon-brands/icons/Linear";
+import Malwarebytes from "reicon-brands/icons/Malwarebytes";
+import Matrix from "reicon-brands/icons/Matrix";
+import Mistralai from "reicon-brands/icons/Mistralai";
+import Mongodb from "reicon-brands/icons/Mongodb";
+import Mullvad from "reicon-brands/icons/Mullvad";
+import Mysql from "reicon-brands/icons/Mysql";
+import Neovim from "reicon-brands/icons/Neovim";
+import Nextcloud from "reicon-brands/icons/Nextcloud";
+import Nixos from "reicon-brands/icons/Nixos";
+import Nodedotjs from "reicon-brands/icons/Nodedotjs";
+import Nordvpn from "reicon-brands/icons/Nordvpn";
+import Notepadplusplus from "reicon-brands/icons/Notepadplusplus";
+import Notion from "reicon-brands/icons/Notion";
+import Npm from "reicon-brands/icons/Npm";
+import Nvidia from "reicon-brands/icons/Nvidia";
+import Nvm from "reicon-brands/icons/Nvm";
+import Obsidian from "reicon-brands/icons/Obsidian";
+import Obsstudio from "reicon-brands/icons/Obsstudio";
+import Ollama from "reicon-brands/icons/Ollama";
+import Openaigym from "reicon-brands/icons/Openaigym";
+import Openjdk from "reicon-brands/icons/Openjdk";
+import Opera from "reicon-brands/icons/Opera";
+import Operagx from "reicon-brands/icons/Operagx";
+import Perplexity from "reicon-brands/icons/Perplexity";
+import Photopea from "reicon-brands/icons/Photopea";
+import Pipx from "reicon-brands/icons/Pipx";
+import Plex from "reicon-brands/icons/Plex";
+import Pnpm from "reicon-brands/icons/Pnpm";
+import Poetry from "reicon-brands/icons/Poetry";
+import Portainer from "reicon-brands/icons/Portainer";
+import Postgresql from "reicon-brands/icons/Postgresql";
+import Postman from "reicon-brands/icons/Postman";
+import Prettier from "reicon-brands/icons/Prettier";
+import Proton from "reicon-brands/icons/Proton";
+import Protoncalendar from "reicon-brands/icons/Protoncalendar";
+import Protondb from "reicon-brands/icons/Protondb";
+import Protondrive from "reicon-brands/icons/Protondrive";
+import Protonmail from "reicon-brands/icons/Protonmail";
+import Protonvpn from "reicon-brands/icons/Protonvpn";
+import Pycharm from "reicon-brands/icons/Pycharm";
+import Python from "reicon-brands/icons/Python";
+import Qbittorrent from "reicon-brands/icons/Qbittorrent";
+import Qemu from "reicon-brands/icons/Qemu";
+import Qubesos from "reicon-brands/icons/Qubesos";
+import Rclone from "reicon-brands/icons/Rclone";
+import React from "reicon-brands/icons/React";
+import Redis from "reicon-brands/icons/Redis";
+import Roblox from "reicon-brands/icons/Roblox";
+import Rust from "reicon-brands/icons/Rust";
+import Rustdesk from "reicon-brands/icons/Rustdesk";
+import Safari from "reicon-brands/icons/Safari";
+import Session from "reicon-brands/icons/Session";
+import Sharex from "reicon-brands/icons/Sharex";
+import Signal from "reicon-brands/icons/Signal";
+import Simplelogin from "reicon-brands/icons/Simplelogin";
+import Simplex from "reicon-brands/icons/Simplex";
+import Spotify from "reicon-brands/icons/Spotify";
+import Steam from "reicon-brands/icons/Steam";
+import Stremio from "reicon-brands/icons/Stremio";
+import Sublimetext from "reicon-brands/icons/Sublimetext";
+import Supabase from "reicon-brands/icons/Supabase";
+import Svelte from "reicon-brands/icons/Svelte";
+import Syncthing from "reicon-brands/icons/Syncthing";
+import Tailscale from "reicon-brands/icons/Tailscale";
+import Tauri from "reicon-brands/icons/Tauri";
+import Teamviewer from "reicon-brands/icons/Teamviewer";
+import Telegram from "reicon-brands/icons/Telegram";
+import Terraform from "reicon-brands/icons/Terraform";
+import Thunderbird from "reicon-brands/icons/Thunderbird";
+import Todoist from "reicon-brands/icons/Todoist";
+import Torbrowser from "reicon-brands/icons/Torbrowser";
+import Torproject from "reicon-brands/icons/Torproject";
+import Transmission from "reicon-brands/icons/Transmission";
+import Trello from "reicon-brands/icons/Trello";
+import Trpc from "reicon-brands/icons/Trpc";
+import Ublockorigin from "reicon-brands/icons/Ublockorigin";
+import Unity from "reicon-brands/icons/Unity";
+import Unrealengine from "reicon-brands/icons/Unrealengine";
+import Utorrent from "reicon-brands/icons/Utorrent";
+import Uv from "reicon-brands/icons/Uv";
+import Vercel from "reicon-brands/icons/Vercel";
+import Vim from "reicon-brands/icons/Vim";
+import Virtualbox from "reicon-brands/icons/Virtualbox";
+import Vite from "reicon-brands/icons/Vite";
+import Vivaldi from "reicon-brands/icons/Vivaldi";
+import Vlcmediaplayer from "reicon-brands/icons/Vlcmediaplayer";
+import Vmware from "reicon-brands/icons/Vmware";
+import Vscodium from "reicon-brands/icons/Vscodium";
+import Warp from "reicon-brands/icons/Warp";
+import Webex from "reicon-brands/icons/Webex";
+import Webstorm from "reicon-brands/icons/Webstorm";
+import Wezterm from "reicon-brands/icons/Wezterm";
+import Whatsapp from "reicon-brands/icons/Whatsapp";
+import Winamp from "reicon-brands/icons/Winamp";
+import Windsurf from "reicon-brands/icons/Windsurf";
+import Wireguard from "reicon-brands/icons/Wireguard";
+import Wireshark from "reicon-brands/icons/Wireshark";
+import X from "reicon-brands/icons/X";
+import Yarn from "reicon-brands/icons/Yarn";
+import Yubico from "reicon-brands/icons/Yubico";
+import Zig from "reicon-brands/icons/Zig";
+import Zoom from "reicon-brands/icons/Zoom";
+import Zotero from "reicon-brands/icons/Zotero";
+import _1password from "reicon-brands/icons/_1password";
+import _7zip from "reicon-brands/icons/_7zip";
+
+/** Eager registry — tree-shaken to used icons only. */
+export const BRANDS: Record<string, BrandIconFn> = {
+  "1password": _1password as BrandIconFn,
+  "7zip": _7zip as BrandIconFn,
+  "alacritty": Alacritty as BrandIconFn,
+  "anaconda": Anaconda as BrandIconFn,
+  "android-studio": Androidstudio as BrandIconFn,
+  "anki": Anki as BrandIconFn,
+  "ansible": Ansible as BrandIconFn,
+  "anthropic": Anthropic as BrandIconFn,
+  "anydesk": Anydesk as BrandIconFn,
+  "openoffice": Apacheopenoffice as BrandIconFn,
+  "apple": Apple as BrandIconFn,
+  "asana": Asana as BrandIconFn,
+  "audacity": Audacity as BrandIconFn,
+  "avast": Avast as BrandIconFn,
+  "avira": Avira as BrandIconFn,
+  "biome": Biome as BrandIconFn,
+  "bitwarden": Bitwarden as BrandIconFn,
+  "blender": Blender as BrandIconFn,
+  "brave": Brave as BrandIconFn,
+  "bun": Bun as BrandIconFn,
+  "ccleaner": Ccleaner as BrandIconFn,
+  "chocolatey": Chocolatey as BrandIconFn,
+  "citrix": Citrix as BrandIconFn,
+  "claude": Claude as BrandIconFn,
+  "cline": Cline as BrandIconFn,
+  "cloudflare": Cloudflare as BrandIconFn,
+  "cryptomator": Cryptomator as BrandIconFn,
+  "cursor": Cursor as BrandIconFn,
+  "davinci-resolve": Davinciresolve as BrandIconFn,
+  "dbeaver": Dbeaver as BrandIconFn,
+  "deepseek": Deepseek as BrandIconFn,
+  "deno": Deno as BrandIconFn,
+  "discord": Discord as BrandIconFn,
+  "docker": Docker as BrandIconFn,
+  "dotnet": Dotnet as BrandIconFn,
+  "dropbox": Dropbox as BrandIconFn,
+  "duckduckgo": Duckduckgo as BrandIconFn,
+  "eclipse-adoptium": Eclipseadoptium as BrandIconFn,
+  "eclipse": Eclipseide as BrandIconFn,
+  "electron": Electron as BrandIconFn,
+  "element": Element as BrandIconFn,
+  "elevenlabs": Elevenlabs as BrandIconFn,
+  "emby": Emby as BrandIconFn,
+  "epic-games": Epicgames as BrandIconFn,
+  "eslint": Eslint as BrandIconFn,
+  "evernote": Evernote as BrandIconFn,
+  "ffmpeg": Ffmpeg as BrandIconFn,
+  "figma": Figma as BrandIconFn,
+  "filezilla": Filezilla as BrandIconFn,
+  "firefox": Firefox as BrandIconFn,
+  "flatpak": Flatpak as BrandIconFn,
+  "flutter": Flutter as BrandIconFn,
+  "foobar2000": Foobar2000 as BrandIconFn,
+  "freenet": Freenet as BrandIconFn,
+  "gimp": Gimp as BrandIconFn,
+  "git": Git as BrandIconFn,
+  "git-for-windows": Gitforwindows as BrandIconFn,
+  "github": Github as BrandIconFn,
+  "github-copilot": Githubcopilot as BrandIconFn,
+  "gitlab": Gitlab as BrandIconFn,
+  "gitkraken": Gitkraken as BrandIconFn,
+  "go": Go as BrandIconFn,
+  "godot": Godotengine as BrandIconFn,
+  "chrome": Googlechrome as BrandIconFn,
+  "google-drive": Googledrive as BrandIconFn,
+  "google-earth": Googleearth as BrandIconFn,
+  "gemini": Googlegemini as BrandIconFn,
+  "grapheneos": Grapheneos as BrandIconFn,
+  "haskell": Haskell as BrandIconFn,
+  "helium": Heliumbrowser as BrandIconFn,
+  "helix": Helix as BrandIconFn,
+  "homebrew": Homebrew as BrandIconFn,
+  "htop": Htop as BrandIconFn,
+  "huggingface": Huggingface as BrandIconFn,
+  "inkscape": Inkscape as BrandIconFn,
+  "insomnia": Insomnia as BrandIconFn,
+  "intellij": Intellijidea as BrandIconFn,
+  "ipfs": Ipfs as BrandIconFn,
+  "itunes": Itunes as BrandIconFn,
+  "jellyfin": Jellyfin as BrandIconFn,
+  "jetbrains": Jetbrains as BrandIconFn,
+  "jira": Jira as BrandIconFn,
+  "julia": Julia as BrandIconFn,
+  "jupyter": Jupyter as BrandIconFn,
+  "keepassxc": Keepassxc as BrandIconFn,
+  "kodi": Kodi as BrandIconFn,
+  "krita": Krita as BrandIconFn,
+  "kubernetes": Kubernetes as BrandIconFn,
+  "lastpass": Lastpass as BrandIconFn,
+  "libreoffice": Libreoffice as BrandIconFn,
+  "librewolf": Librewolf as BrandIconFn,
+  "linear": Linear as BrandIconFn,
+  "malwarebytes": Malwarebytes as BrandIconFn,
+  "matrix": Matrix as BrandIconFn,
+  "mistral": Mistralai as BrandIconFn,
+  "mongodb": Mongodb as BrandIconFn,
+  "mullvad": Mullvad as BrandIconFn,
+  "mysql": Mysql as BrandIconFn,
+  "neovim": Neovim as BrandIconFn,
+  "nextcloud": Nextcloud as BrandIconFn,
+  "nixos": Nixos as BrandIconFn,
+  "nodejs": Nodedotjs as BrandIconFn,
+  "nordvpn": Nordvpn as BrandIconFn,
+  "notion": Notion as BrandIconFn,
+  "notepad-plus-plus": Notepadplusplus as BrandIconFn,
+  "npm": Npm as BrandIconFn,
+  "nvidia": Nvidia as BrandIconFn,
+  "nvm": Nvm as BrandIconFn,
+  "obsidian": Obsidian as BrandIconFn,
+  "obs": Obsstudio as BrandIconFn,
+  "ollama": Ollama as BrandIconFn,
+  "openai": Openaigym as BrandIconFn,
+  "openjdk": Openjdk as BrandIconFn,
+  "opera": Opera as BrandIconFn,
+  "opera-gx": Operagx as BrandIconFn,
+  "perplexity": Perplexity as BrandIconFn,
+  "photopea": Photopea as BrandIconFn,
+  "pipx": Pipx as BrandIconFn,
+  "plex": Plex as BrandIconFn,
+  "pnpm": Pnpm as BrandIconFn,
+  "poetry": Poetry as BrandIconFn,
+  "portainer": Portainer as BrandIconFn,
+  "postgresql": Postgresql as BrandIconFn,
+  "postman": Postman as BrandIconFn,
+  "prettier": Prettier as BrandIconFn,
+  "proton": Proton as BrandIconFn,
+  "proton-calendar": Protoncalendar as BrandIconFn,
+  "protondb": Protondb as BrandIconFn,
+  "proton-drive": Protondrive as BrandIconFn,
+  "proton-mail": Protonmail as BrandIconFn,
+  "proton-vpn": Protonvpn as BrandIconFn,
+  "pycharm": Pycharm as BrandIconFn,
+  "python": Python as BrandIconFn,
+  "qbittorrent": Qbittorrent as BrandIconFn,
+  "qemu": Qemu as BrandIconFn,
+  "qubes": Qubesos as BrandIconFn,
+  "rclone": Rclone as BrandIconFn,
+  "react": React as BrandIconFn,
+  "redis": Redis as BrandIconFn,
+  "roblox": Roblox as BrandIconFn,
+  "rust": Rust as BrandIconFn,
+  "rustdesk": Rustdesk as BrandIconFn,
+  "safari": Safari as BrandIconFn,
+  "session": Session as BrandIconFn,
+  "sharex": Sharex as BrandIconFn,
+  "signal": Signal as BrandIconFn,
+  "simplelogin": Simplelogin as BrandIconFn,
+  "simplex": Simplex as BrandIconFn,
+  "spotify": Spotify as BrandIconFn,
+  "steam": Steam as BrandIconFn,
+  "stremio": Stremio as BrandIconFn,
+  "sublime-text": Sublimetext as BrandIconFn,
+  "supabase": Supabase as BrandIconFn,
+  "svelte": Svelte as BrandIconFn,
+  "syncthing": Syncthing as BrandIconFn,
+  "tailscale": Tailscale as BrandIconFn,
+  "tauri": Tauri as BrandIconFn,
+  "teamviewer": Teamviewer as BrandIconFn,
+  "telegram": Telegram as BrandIconFn,
+  "terraform": Terraform as BrandIconFn,
+  "thunderbird": Thunderbird as BrandIconFn,
+  "todoist": Todoist as BrandIconFn,
+  "tor-browser": Torbrowser as BrandIconFn,
+  "tor": Torproject as BrandIconFn,
+  "transmission": Transmission as BrandIconFn,
+  "trello": Trello as BrandIconFn,
+  "trpc": Trpc as BrandIconFn,
+  "ublock": Ublockorigin as BrandIconFn,
+  "unity": Unity as BrandIconFn,
+  "unreal": Unrealengine as BrandIconFn,
+  "utorrent": Utorrent as BrandIconFn,
+  "uv": Uv as BrandIconFn,
+  "vercel": Vercel as BrandIconFn,
+  "vim": Vim as BrandIconFn,
+  "virtualbox": Virtualbox as BrandIconFn,
+  "vite": Vite as BrandIconFn,
+  "vivaldi": Vivaldi as BrandIconFn,
+  "vlc": Vlcmediaplayer as BrandIconFn,
+  "vmware": Vmware as BrandIconFn,
+  "vscode": Vscodium as BrandIconFn,
+  "warp": Warp as BrandIconFn,
+  "webex": Webex as BrandIconFn,
+  "webstorm": Webstorm as BrandIconFn,
+  "wezterm": Wezterm as BrandIconFn,
+  "whatsapp": Whatsapp as BrandIconFn,
+  "winamp": Winamp as BrandIconFn,
+  "windsurf": Windsurf as BrandIconFn,
+  "wireguard": Wireguard as BrandIconFn,
+  "wireshark": Wireshark as BrandIconFn,
+  "x": X as BrandIconFn,
+  "yarn": Yarn as BrandIconFn,
+  "yubico": Yubico as BrandIconFn,
+  "zig": Zig as BrandIconFn,
+  "zotero": Zotero as BrandIconFn,
+  "zoom": Zoom as BrandIconFn,
+};
+
+export function getBrand(key?: string): BrandIconFn | null {
+  if (!key) return null;
+  const raw = BRANDS[key];
+  if (!raw) return null;
+  // Unwrap Vite default-export interop if needed
+  if (typeof raw === "function" && typeof raw.svgContent === "string") {
+    return raw;
+  }
+  const any = raw as unknown as { default?: BrandIconFn; svgContent?: string };
+  if (any.default && typeof any.default.svgContent === "string") {
+    return any.default;
+  }
+  if (typeof any.svgContent === "string") {
+    return raw;
+  }
+  return raw;
+}

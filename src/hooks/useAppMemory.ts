@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import type { CategoryId } from "../types";
 
-const KEY = "everyone.ui.v1";
+const KEY = "browse.ui.v1";
+const LEGACY_KEY = "everyone.ui.v1";
 
 export interface AppMemory {
   category: CategoryId;
@@ -15,7 +16,8 @@ const DEFAULTS: AppMemory = {
 
 function load(): AppMemory {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw =
+      localStorage.getItem(KEY) ?? localStorage.getItem(LEGACY_KEY);
     if (!raw) return { ...DEFAULTS };
     const p = JSON.parse(raw) as Partial<AppMemory>;
     return {

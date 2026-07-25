@@ -10,7 +10,8 @@ import type { Platform } from "../lib/platform";
 import type { AppPackage, QueueItem, QueueItemStatus } from "../types";
 
 const TICK_MS = 200;
-const INSTALLED_KEY = "everyone.installed";
+const INSTALLED_KEY = "browse.installed";
+const LEGACY_INSTALLED_KEY = "everyone.installed";
 
 function uid(): string {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
@@ -18,7 +19,9 @@ function uid(): string {
 
 function loadInstalled(): Set<string> {
   try {
-    const raw = localStorage.getItem(INSTALLED_KEY);
+    const raw =
+      localStorage.getItem(INSTALLED_KEY) ??
+      localStorage.getItem(LEGACY_INSTALLED_KEY);
     if (!raw) return new Set();
     const arr = JSON.parse(raw) as string[];
     return new Set(Array.isArray(arr) ? arr : []);

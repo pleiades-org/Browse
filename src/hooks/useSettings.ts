@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { DEFAULT_SETTINGS, type AppSettings } from "../types";
 
-const KEY = "everyone.settings.v2";
+const KEY = "browse.settings.v2";
+const LEGACY_KEY = "everyone.settings.v2";
 
 function load(): AppSettings {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw =
+      localStorage.getItem(KEY) ?? localStorage.getItem(LEGACY_KEY);
     if (!raw) return { ...DEFAULT_SETTINGS };
     const parsed = JSON.parse(raw) as Partial<AppSettings>;
     return {

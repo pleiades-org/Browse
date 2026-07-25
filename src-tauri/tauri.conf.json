@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Everyone",
-  "version": "0.1.0",
-  "identifier": "com.pleiades.everyone",
+  "productName": "Browse",
+  "version": "0.1.1",
+  "identifier": "com.pleiades.browse",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Everyone",
+        "title": "Browse",
         "width": 1180,
         "height": 760,
         "minWidth": 800,
@@ -40,12 +40,12 @@
       "nsis": {
         "installMode": "currentUser",
         "displayLanguageSelector": false,
-        "startMenuFolder": "Everyone"
+        "startMenuFolder": "Browse"
       }
     },
     "shortDescription": "App installer with download queue and bundles",
-    "longDescription": "Everyone is a minimalist dark-mode installer with real package manager installs (winget, brew, flatpak, npm, pip), download queue, and curated multi-app bundles.",
+    "longDescription": "Browse is a minimalist dark-mode installer with real package manager installs (winget, brew, flatpak, npm, pip), download queue, and curated multi-app bundles.",
     "category": "Utility",
-    "copyright": "Copyright © Everyone"
+    "copyright": "Copyright © Browse"
   }
 }

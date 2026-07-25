@@ -1,8 +1,8 @@
 {
-  "name": "everyone",
+  "name": "browse",
   "private": true,
-  "version": "0.1.0",
-  "description": "Everyone — minimalist app installer with download queue",
+  "version": "0.1.1",
+  "description": "Browse — minimalist app installer with download queue",
   "type": "module",
   "scripts": {
     "dev": "vite",

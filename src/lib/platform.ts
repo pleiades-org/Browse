@@ -10,7 +10,7 @@ export function detectPlatform(): Platform {
   ).userAgentData?.platform;
   const p = `${uaData ?? ""} ${navigator.platform ?? ""} ${navigator.userAgent ?? ""}`;
 
-  // WebView2 / Windows first — most Everyone users
+  // WebView2 / Windows first — most Browse users
   if (/Win32|Win64|Windows|Win/i.test(p)) return "windows";
   if (/Mac|Macintosh|MacIntel|MacOS/i.test(p)) return "macos";
   if (/Linux|X11|Wayland|CrOS/i.test(p)) return "linux";

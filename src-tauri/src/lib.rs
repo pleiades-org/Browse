@@ -555,7 +555,7 @@ fn install_from_github(source: &str) -> Result<CmdResult, String> {
 
     let release: serde_json::Value = agent
         .get(&api_url)
-        .set("User-Agent", "Everyone-Installer")
+        .set("User-Agent", "Browse-Installer")
         .set("Accept", "application/vnd.github+json")
         .call()
         .map_err(|e| format!("GitHub release fetch failed: {e}"))?
@@ -596,12 +596,12 @@ fn install_from_github(source: &str) -> Result<CmdResult, String> {
         .to_string();
 
     let mut temp = std::env::temp_dir();
-    temp.push(format!("everyone-install-{}-{}", repo, resolved_asset_name));
+    temp.push(format!("browse-install-{}-{}", repo, resolved_asset_name));
 
     // Download
     let resp = agent
         .get(&download_url)
-        .set("User-Agent", "Everyone-Installer")
+        .set("User-Agent", "Browse-Installer")
         .call()
         .map_err(|e| format!("Download failed: {e}"))?;
 

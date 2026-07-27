@@ -1,7 +1,7 @@
 {
   "name": "browse",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browse — minimalist app installer with download queue",
   "type": "module",
   "scripts": {

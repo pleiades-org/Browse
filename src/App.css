@@ -254,6 +254,12 @@ input {
   z-index: 1;
   display: flex;
   align-items: center;
+  pointer-events: none;
+}
+
+.leading > *,
+.trailing > * {
+  pointer-events: auto;
 }
 
 .leading {
@@ -275,7 +281,7 @@ input {
   display: flex;
   align-items: center;
   gap: 0;
-  /* only drag fills capture; search is interactive */
+  /* drag fills pass through to titlebar; search is interactive */
   pointer-events: none;
 }
 

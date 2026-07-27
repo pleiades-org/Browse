@@ -49,8 +49,29 @@ export function TitleBar({
     }
   }
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (e.button === 0) {
+      const target = e.target as HTMLElement;
+      if (
+        !target.closest(
+          "button, input, a, textarea, .win-controls, .titlebar-search",
+        )
+      ) {
+        try {
+          void getCurrentWindow().startDragging();
+        } catch {
+          /* browser preview */
+        }
+      }
+    }
+  };
+
   return (
-    <header className="titlebar">
+    <header
+      className="titlebar"
+      data-tauri-drag-region
+      onMouseDown={handleMouseDown}
+    >
       <div className="drag-layer" data-tauri-drag-region />
 
       <div className="leading">

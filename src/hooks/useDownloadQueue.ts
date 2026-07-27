@@ -306,7 +306,7 @@ export function useDownloadQueue(opts: {
     return () => window.clearInterval(timer);
   }, []);
 
-  // Detect what's already on the machine (winget / npm / PATH / etc.)
+  // Detect what's already on the machine (winget / npm / PATH / etc.) asynchronously in background
   useEffect(() => {
     let cancelled = false;
     const platform = platformRef.current;
@@ -318,26 +318,29 @@ export function useDownloadQueue(opts: {
       }),
     );
 
-    void (async () => {
-      const found = await scanInstalled(entries);
-      if (cancelled || found.length === 0) return;
-      setInstalled((prev) => {
-        let changed = false;
-        const next = new Set(prev);
-        for (const id of found) {
-          if (!next.has(id)) {
-            next.add(id);
-            changed = true;
+    const timer = setTimeout(() => {
+      void (async () => {
+        const found = await scanInstalled(entries);
+        if (cancelled || found.length === 0) return;
+        setInstalled((prev) => {
+          let changed = false;
+          const next = new Set(prev);
+          for (const id of found) {
+            if (!next.has(id)) {
+              next.add(id);
+              changed = true;
+            }
           }
-        }
-        if (!changed) return prev;
-        saveInstalled(next);
-        return next;
-      });
-    })();
+          if (!changed) return prev;
+          saveInstalled(next);
+          return next;
+        });
+      })();
+    }, 50);
 
     return () => {
       cancelled = true;
+      clearTimeout(timer);
     };
   }, [platform]);
 

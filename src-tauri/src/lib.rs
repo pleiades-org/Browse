@@ -82,20 +82,36 @@ fn run_cmd_path(program: &PathBuf, args: &[&str]) -> Result<CmdResult, String> {
     Ok(CmdResult { ok, message, code })
 }
 
-/// True if `cmd` resolves on PATH (`where` / `which`).
+/// True if `cmd` resolves on PATH (fast in-memory filesystem lookup).
 fn command_on_path(cmd: &str) -> bool {
-    #[cfg(windows)]
-    {
-        run_cmd("where.exe", &[cmd])
-            .map(|r| r.ok && !r.message.is_empty() && !r.message.to_ascii_lowercase().contains("could not find"))
-            .unwrap_or(false)
+    let path_os = match std::env::var_os("PATH") {
+        Some(val) => val,
+        None => return false,
+    };
+    let paths = std::env::split_paths(&path_os);
+    for mut path in paths {
+        path.push(cmd);
+        if path.is_file() {
+            return true;
+        }
+        #[cfg(windows)]
+        {
+            let mut ext_path = path.clone();
+            ext_path.set_extension("exe");
+            if ext_path.is_file() {
+                return true;
+            }
+            ext_path.set_extension("cmd");
+            if ext_path.is_file() {
+                return true;
+            }
+            ext_path.set_extension("bat");
+            if ext_path.is_file() {
+                return true;
+            }
+        }
     }
-    #[cfg(not(windows))]
-    {
-        run_cmd("which", &[cmd])
-            .map(|r| r.ok && !r.message.is_empty())
-            .unwrap_or(false)
-    }
+    false
 }
 
 /// CLI binaries that imply a catalog source is present (even if not via winget).
@@ -849,12 +865,41 @@ fn check_installed(source: String) -> Result<bool, String> {
 /// Returns package **ids** that appear installed on this machine.
 #[tauri::command]
 fn scan_installed(entries: Vec<ScanEntry>) -> Result<Vec<String>, String> {
-    let winget = list_winget_ids();
-    let npm = list_npm_global();
-    let pip = list_pip_packages();
-    let brew = list_brew_formulae();
-    let flatpak = list_flatpak_ids();
-    let cargo = list_cargo_bins();
+    let winget_handle = std::thread::spawn(|| {
+        if cfg!(windows) {
+            list_winget_ids()
+        } else {
+            HashSet::new()
+        }
+    });
+
+    let npm_handle = std::thread::spawn(list_npm_global);
+    let pip_handle = std::thread::spawn(list_pip_packages);
+
+    let brew_handle = std::thread::spawn(|| {
+        if cfg!(target_os = "macos") {
+            list_brew_formulae()
+        } else {
+            HashSet::new()
+        }
+    });
+
+    let flatpak_handle = std::thread::spawn(|| {
+        if cfg!(target_os = "linux") {
+            list_flatpak_ids()
+        } else {
+            HashSet::new()
+        }
+    });
+
+    let cargo_handle = std::thread::spawn(list_cargo_bins);
+
+    let winget = winget_handle.join().unwrap_or_default();
+    let npm = npm_handle.join().unwrap_or_default();
+    let pip = pip_handle.join().unwrap_or_default();
+    let brew = brew_handle.join().unwrap_or_default();
+    let flatpak = flatpak_handle.join().unwrap_or_default();
+    let cargo = cargo_handle.join().unwrap_or_default();
 
     let mut found = Vec::new();
     for e in entries {
